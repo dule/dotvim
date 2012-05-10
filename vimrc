@@ -60,7 +60,6 @@ autocmd FileType c,cpp,java,php,javascript,coffee,jade autocmd BufWritePre <buff
 noremap <silent> <Leader>n :NERDTree<CR>
 noremap <silent> <Leader>f :NERDTreeFind<CR>
 
-noremap <silent> <Leader>s :w<CR>
 noremap <silent> <Leader>q :q!<CR>
 noremap <silent> <Leader>w :wq!<CR>
 noremap <silent> <Leader>bd :bd<CR>
@@ -68,6 +67,7 @@ noremap <silent> <Leader>cc :CoffeeCompile<CR>
 noremap <silent> <Leader>csw :colorscheme habilight<CR>
 noremap <silent> <Leader>csd :colorscheme freya<CR> :colorscheme earendel<CR>
 noremap <silent> <Leader>nh :noh<CR>
+noremap <silent> <Leader>s :vsplit
 
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
