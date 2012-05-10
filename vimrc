@@ -43,18 +43,10 @@ map <silent> <C-j> :wincmd j<CR>
 map <silent> <C-h> :wincmd h<CR>
 map <silent> <C-l> :wincmd l<CR>
 
-" JSLint settings
-" nnoremap <silent> <F5> :w<CR>:make %<CR>:cw<CR>
-" inoremap <silent> <F5> <C-O>:make %<CR><C-O>:cw<CR>
-" nnoremap <silent> <C-F5> :cn<CR>
-" nnoremap <silent> <S-F5> :cp<CR>
 nnoremap <silent> <F5> :!coffee %<CR>
 inoremap <silent> jj <Esc>
-autocmd FileType javascript set makeprg=jslint\ %
-autocmd FileType javascript set efm=%-P%f,
-                    \%E%>\ #%n\ %m,%Z%.%#Line\ %l\\,\ Pos\ %c,
-                    \%-G%f\ is\ OK.,%-Q
 
+" Remove trailing whitespace on save
 autocmd FileType c,cpp,java,php,javascript,coffee,jade autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 noremap <silent> <Leader>n :NERDTree<CR>
