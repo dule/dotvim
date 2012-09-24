@@ -24,6 +24,7 @@ set smartindent
 
 set ignorecase
 set smartcase
+set switchbuf=usetab,newtab
 
 set backup
 set backupdir=~/.vim/backups
@@ -43,14 +44,27 @@ map <silent> <C-j> :wincmd j<CR>
 map <silent> <C-h> :wincmd h<CR>
 map <silent> <C-l> :wincmd l<CR>
 
-nnoremap <silent> <F5> :!coffee %<CR>
-inoremap <silent> jj <Esc>
+map <silent> <D-j> <C-d>
+map <silent> <D-k> <C-u>
 
-" Remove trailing whitespace on save
-autocmd FileType c,cpp,java,php,javascript,coffee,jade autocmd BufWritePre <buffer> :%s/\s\+$//e
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+map <F4> :execute "noautocmd vimgrep /\\<" . expand("<cword>") . "\\>/gj **/*." .  expand("%:e") <Bar> cw<CR>
+nnoremap <silent> <F5> :!coffee %<CR>
+nnoremap <F6> :buffers<CR>:buffer<Space>
+inoremap <silent> jj <Esc>
+nnoremap <silent> ; :
 
 noremap <silent> <Leader>n :NERDTree<CR>
 noremap <silent> <Leader>f :NERDTreeFind<CR>
+
+" Remove trailing whitespace on save
+autocmd FileType c,cpp,java,php,javascript,coffee,jade,stylus autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 noremap <silent> <Leader>q :q!<CR>
 noremap <silent> <Leader>w :wq!<CR>
@@ -65,3 +79,4 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
+cmap w!! w !sudo tee % >/dev/null
