@@ -44,8 +44,8 @@ map <silent> <C-j> :wincmd j<CR>
 map <silent> <C-h> :wincmd h<CR>
 map <silent> <C-l> :wincmd l<CR>
 
-map <silent> <D-j> <C-d>
-map <silent> <D-k> <C-u>
+map <silent> <D-j> 10j
+map <silent> <D-k> 10k
 
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
@@ -80,3 +80,7 @@ vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 cmap w!! w !sudo tee % >/dev/null
+
+if has('gui_macvim')
+    set macmeta
+endif
