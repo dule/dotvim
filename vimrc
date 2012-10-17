@@ -30,8 +30,10 @@ set backup
 set backupdir=~/.vim/backups
 set directory=~/.vim/tmp,/var/tmp,/tmp
 
+set wildignore=node_modules/**
+
 syntax on
-colorscheme earendel
+colorscheme solarized
 
 " Use ctrl-[hjkl] to select the active split
 map <silent> <C-Up> :wincmd k<CR>
@@ -70,8 +72,8 @@ noremap <silent> <Leader>q :q!<CR>
 noremap <silent> <Leader>w :wq!<CR>
 noremap <silent> <Leader>bd :bd<CR>
 noremap <silent> <Leader>cc :CoffeeCompile<CR>
-noremap <silent> <Leader>csw :colorscheme habilight<CR>
-noremap <silent> <Leader>csd :colorscheme freya<CR> :colorscheme earendel<CR>
+noremap <silent> <Leader>csw :set background=light<CR>
+noremap <silent> <Leader>csd :set background=dark<CR>
 noremap <silent> <Leader>nh :noh<CR>
 noremap <silent> <Leader>s :vsplit
 
