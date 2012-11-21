@@ -48,6 +48,8 @@ map <silent> <C-l> :wincmd l<CR>
 
 map <silent> <D-j> 10j
 map <silent> <D-k> 10k
+map <silent> <S-D-j> 20j
+map <silent> <S-D-k> 20k
 
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
