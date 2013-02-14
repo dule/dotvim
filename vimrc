@@ -1,8 +1,8 @@
 "pathogen
-filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags() "call this when installing new plugins
-filetype plugin on
+execute pathogen#infect()
+Helptags
+syntax on
+filetype plugin indent on
 
 let mapleader=','
 
@@ -14,7 +14,6 @@ set incsearch
 set hlsearch
 
 "indent configs
-filetype plugin indent on
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -32,7 +31,6 @@ set directory=~/.vim/tmp,/var/tmp,/tmp
 
 set wildignore=node_modules/**
 
-syntax on
 colorscheme solarized
 
 " Use ctrl-[hjkl] to select the active split
@@ -50,6 +48,8 @@ map <silent> <D-j> 10j
 map <silent> <D-k> 10k
 map <silent> <S-D-j> 20j
 map <silent> <S-D-k> 20k
+
+nmap <silent> cp "_cw<C-R>"<Esc>
 
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
