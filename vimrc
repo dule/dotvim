@@ -81,6 +81,7 @@ noremap <silent> <Leader>csw :set background=light<CR>
 noremap <silent> <Leader>csd :set background=dark<CR>
 noremap <silent> <Leader>nh :noh<CR>
 noremap <silent> <Leader>s :vsplit
+noremap <silent> <Leader>gv :Gitv
 
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
