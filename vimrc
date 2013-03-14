@@ -20,6 +20,7 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set smartindent
+set colorcolumn=120
 
 set ignorecase
 set smartcase
@@ -33,22 +34,25 @@ set wildignore=node_modules/**
 
 colorscheme solarized
 
+highlight clear SignColumn
+
 " Use ctrl-[hjkl] to select the active split
-map <silent> <C-Up> :wincmd k<CR>
-map <silent> <C-Down> :wincmd j<CR>
-map <silent> <C-Left> :wincmd h<CR>
-map <silent> <C-Right> :wincmd l<CR>
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-j> :wincmd j<CR>
+nnoremap <silent> <C-h> :wincmd h<CR>
+nnoremap <silent> <C-l> :wincmd l<CR>
 
-map <silent> <C-k> :wincmd k<CR>
-map <silent> <C-j> :wincmd j<CR>
-map <silent> <C-h> :wincmd h<CR>
-map <silent> <C-l> :wincmd l<CR>
+nnoremap <silent> <Leader>k :wincmd k<CR>
+nnoremap <silent> <Leader>j :wincmd j<CR>
+nnoremap <silent> <Leader>h :wincmd h<CR>
+nnoremap <silent> <Leader>l :wincmd l<CR>
 
-map <silent> <D-j> 10j
-map <silent> <D-k> 10k
-map <silent> <S-D-j> 20j
-map <silent> <S-D-k> 20k
+noremap <silent> <D-j> 10j
+noremap <silent> <D-k> 10k
+noremap <silent> <S-D-j> 20j
+noremap <silent> <S-D-k> 20k
 
+" Change word with buffer contents
 nmap <silent> cp "_cw<C-R>"<Esc>
 
 nnoremap <A-j> :m .+1<CR>==
@@ -58,8 +62,7 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-map <F4> :execute "noautocmd vimgrep /\\<" . expand("<cword>") . "\\>/gj **/*." .  expand("%:e") <Bar> cw<CR>
-nnoremap <silent> <F5> :!coffee %<CR>
+noremap <F4> :execute "noautocmd vimgrep /\\<" . expand("<cword>") . "\\>/gj **/*." .  expand("%:e") <Bar> cw<CR>
 nnoremap <F6> :buffers<CR>:buffer<Space>
 inoremap <silent> jj <Esc>
 nnoremap <silent> ; :
@@ -86,5 +89,6 @@ vmap <Leader>a: :Tabularize /:\zs<CR>
 cmap w!! w !sudo tee % >/dev/null
 
 if has('gui_macvim')
+    set guifont=Menlo\ Regular:h14
     set macmeta
 endif
