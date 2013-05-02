@@ -29,10 +29,12 @@ set switchbuf=usetab,newtab
 set backup
 set backupdir=~/.vim/backups
 set directory=~/.vim/tmp,/var/tmp,/tmp
+set undodir^=~/.vim/undo
 
 set wildignore=node_modules/**
 
 colorscheme solarized
+set background=dark
 
 highlight clear SignColumn
 
@@ -82,6 +84,7 @@ noremap <silent> <Leader>csd :set background=dark<CR>
 noremap <silent> <Leader>nh :noh<CR>
 noremap <silent> <Leader>s :vsplit
 noremap <silent> <Leader>gv :Gitv
+noremap <silent> <Leader>v :so $MYVIMRC<CR>
 
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
