@@ -69,7 +69,7 @@ nnoremap <F6> :buffers<CR>:buffer<Space>
 inoremap <silent> jj <Esc>
 nnoremap <silent> ; :
 
-noremap <silent> <Leader>n :NERDTree<CR>
+noremap <silent> <Leader>n :NERDTreeTabsToggle<CR>
 noremap <silent> <Leader>f :NERDTreeFind<CR>
 
 " Remove trailing whitespace on save
