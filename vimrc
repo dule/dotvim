@@ -31,7 +31,7 @@ set backupdir=~/.vim/backups
 set directory=~/.vim/tmp,/var/tmp,/tmp
 set undodir^=~/.vim/undo
 
-set wildignore=node_modules/**
+set wildignore=node_modules/**,.*,dist/**,build/**
 
 colorscheme solarized
 set background=dark
@@ -64,7 +64,7 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-noremap <F4> :execute "noautocmd vimgrep /\\<" . expand("<cword>") . "\\>/gj **/*." .  expand("%:e") <Bar> cw<CR>
+noremap <F4> :execute "noautocmd :silent Ggrep " . expand("<cword>") <Bar> cw<CR>
 nnoremap <F6> :buffers<CR>:buffer<Space>
 inoremap <silent> jj <Esc>
 nnoremap <silent> ; :
@@ -96,3 +96,6 @@ if has('gui_macvim')
     set guifont=Menlo\ Regular:h14
     set macmeta
 endif
+
+command -nargs=+ G :silent Ggrep "<args>"
+autocmd QuickFixCmdPost *grep* cwindow
