@@ -31,7 +31,7 @@ set backupdir=~/.vim/backups
 set directory=~/.vim/tmp,/var/tmp,/tmp
 set undodir^=~/.vim/undo
 
-set wildignore=node_modules/**,.*,dist/**,build/**
+set wildignore=node_modules/**,dist/**,build/**,vendor/**,lib/**
 
 colorscheme solarized
 set background=dark
@@ -64,7 +64,7 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-noremap <F4> :execute "noautocmd :silent Ggrep " . expand("<cword>") <Bar> cw<CR>
+noremap <F4> :silent Ggrep <cword><CR> :copen<CR>
 nnoremap <F6> :buffers<CR>:buffer<Space>
 inoremap <silent> jj <Esc>
 nnoremap <silent> ; :
@@ -82,7 +82,7 @@ noremap <silent> <Leader>cc :CoffeeCompile<CR>
 noremap <silent> <Leader>csw :set background=light<CR>
 noremap <silent> <Leader>csd :set background=dark<CR>
 noremap <silent> <Leader>nh :noh<CR>
-noremap <silent> <Leader>s :vsplit
+noremap <silent> <Leader>s :vsplit<CR>
 noremap <silent> <Leader>gv :Gitv
 noremap <silent> <Leader>v :so $MYVIMRC<CR>
 
@@ -92,10 +92,19 @@ nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 cmap w!! w !sudo tee % >/dev/null
 
+" Use the CamelCaseMotion plugin to use camel case word boundaries for w, b, e
+" movement
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
+
 if has('gui_macvim')
-    set guifont=Menlo\ Regular:h14
+    set guifont=Menlo\ Regular:h16
     set macmeta
 endif
 
-command -nargs=+ G :silent Ggrep "<args>"
+command! -nargs=+ G :silent Ggrep "<args>"
 autocmd QuickFixCmdPost *grep* cwindow
