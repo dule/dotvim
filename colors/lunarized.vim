@@ -31,7 +31,7 @@ hi ErrorMsg guifg=#f7f7f7 guibg=#701f52 guisp=#701f52 gui=NONE ctermfg=15 ctermb
 hi Ignore guifg=#000000 guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 hi Debug guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
 hi PMenuSbar guifg=#c2b4a1 guibg=#52463d guisp=#52463d gui=NONE ctermfg=187 ctermbg=239 cterm=NONE
-hi Identifier guifg=#8f3f3f guibg=NONE guisp=NONE gui=bold ctermfg=95 ctermbg=NONE cterm=bold
+hi Identifier guifg=#967f57 guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=bold
 hi SpecialChar guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
 hi Conditional guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
 hi StorageClass guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
@@ -43,7 +43,7 @@ hi Normal guifg=#858585 guibg=#0b0c0d guisp=#0b0c0d gui=NONE ctermfg=102 ctermbg
 hi Label guifg=#c7c7c7 guibg=NONE guisp=NONE gui=NONE ctermfg=251 ctermbg=NONE cterm=NONE
 hi CTagsImport guifg=#e2e4e5 guibg=NONE guisp=NONE gui=NONE ctermfg=254 ctermbg=NONE cterm=NONE
 hi PMenuSel guifg=#d7dee0 guibg=#3a3b3b guisp=#3a3b3b gui=NONE ctermfg=152 ctermbg=237 cterm=NONE
-hi Search guifg=#cccac6 guibg=#2b2b2b guisp=#2b2b2b gui=NONE ctermfg=252 ctermbg=235 cterm=NONE
+hi Search guifg=#cccac6 guibg=#b87e51 guisp=#2b2b2b gui=NONE ctermfg=252 ctermbg=235 cterm=NONE
 hi CTagsGlobalVariable guifg=#e2e4e5 guibg=NONE guisp=NONE gui=NONE ctermfg=254 ctermbg=NONE cterm=NONE
 hi Delimiter guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
 hi Statement guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
@@ -93,7 +93,7 @@ hi Repeat guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE c
 hi SpellBad guifg=#e2e4e5 guibg=#4c4c69 guisp=#4c4c69 gui=NONE ctermfg=254 ctermbg=60 cterm=NONE
 hi CTagsClass guifg=#e2e4e5 guibg=NONE guisp=NONE gui=NONE ctermfg=254 ctermbg=NONE cterm=NONE
 hi Directory guifg=#9e9e9e guibg=NONE guisp=NONE gui=NONE ctermfg=247 ctermbg=NONE cterm=NONE
-hi Structure guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
+hi Structure guifg=#a6612d guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
 hi Macro guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
 hi Underlined guifg=#6c71c4 guibg=NONE guisp=NONE gui=underline ctermfg=61 ctermbg=NONE cterm=underline
 hi DiffAdd guifg=#c29580 guibg=#3d2616 guisp=#3d2616 gui=bold ctermfg=180 ctermbg=52 cterm=bold
