@@ -33,7 +33,7 @@ set undodir^=~/.vim/undo
 
 set wildignore=node_modules/**,dist/**,build/**,vendor/**,lib/**
 
-colorscheme solarized
+colorscheme lunarized
 set background=dark
 
 highlight clear SignColumn
