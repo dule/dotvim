@@ -13,8 +13,8 @@ let g:colors_name = "lunarized"
 
 hi IncSearch guifg=#d66969 guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
 hi WildMenu guifg=#e8e8e8 guibg=#454545 guisp=#454545 gui=NONE ctermfg=254 ctermbg=238 cterm=NONE
-hi SignColumn guifg=#8c8c8c guibg=#333333 guisp=#333333 gui=NONE ctermfg=245 ctermbg=236 cterm=NONE
-hi ColorColumn guifg=#8c8c8c guibg=#333333 guisp=#333333 gui=NONE ctermfg=245 ctermbg=236 cterm=NONE
+hi SignColumn guifg=#8c8c8c guibg=NONE guisp=#333333 gui=NONE ctermfg=245 ctermbg=236 cterm=NONE
+hi ColorColumn guifg=NONE guibg=#333333 guisp=#333333 gui=NONE ctermfg=245 ctermbg=236 cterm=NONE
 hi SpecialComment guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
 hi Typedef guifg=#b58900 guibg=NONE guisp=NONE gui=NONE ctermfg=136 ctermbg=NONE cterm=NONE
 hi Title guifg=#d66969 guibg=NONE guisp=NONE gui=bold ctermfg=167 ctermbg=NONE cterm=bold
@@ -37,9 +37,9 @@ hi Conditional guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=N
 hi StorageClass guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
 hi Todo guifg=#9a32a8 guibg=#0f0f0f guisp=#0f0f0f gui=bold ctermfg=133 ctermbg=233 cterm=bold
 hi Special guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
-hi LineNr guifg=#858585 guibg=#010303 guisp=#010303 gui=NONE ctermfg=102 ctermbg=NONE cterm=NONE
+hi LineNr guifg=#858585 guibg=NONE guisp=#010303 gui=NONE ctermfg=102 ctermbg=NONE cterm=NONE
 hi StatusLine guifg=#b4b8b8 guibg=#242424 guisp=#242424 gui=bold ctermfg=250 ctermbg=235 cterm=bold
-hi Normal guifg=#858585 guibg=#0b0c0d guisp=#0b0c0d gui=NONE ctermfg=102 ctermbg=232 cterm=NONE
+hi Normal guifg=#858585 guibg=#1f1f1f guisp=#1f1f1f gui=NONE ctermfg=102 ctermbg=232 cterm=NONE
 hi Label guifg=#c7c7c7 guibg=NONE guisp=NONE gui=NONE ctermfg=251 ctermbg=NONE cterm=NONE
 hi CTagsImport guifg=#e2e4e5 guibg=NONE guisp=NONE gui=NONE ctermfg=254 ctermbg=NONE cterm=NONE
 hi PMenuSel guifg=#d7dee0 guibg=#3a3b3b guisp=#3a3b3b gui=NONE ctermfg=152 ctermbg=237 cterm=NONE
@@ -69,7 +69,7 @@ hi Function guifg=#8f3f3f guibg=NONE guisp=NONE gui=bold ctermfg=95 ctermbg=NONE
 hi FoldColumn guifg=#999999 guibg=#404040 guisp=#404040 gui=NONE ctermfg=246 ctermbg=238 cterm=NONE
 hi PreProc guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
 hi EnumerationName guifg=#e2e4e5 guibg=NONE guisp=NONE gui=NONE ctermfg=254 ctermbg=NONE cterm=NONE
-hi Visual guifg=#7a7a7a guibg=#2e2e2e guisp=#2e2e2e gui=NONE ctermfg=243 ctermbg=236 cterm=NONE
+hi Visual guifg=bg guibg=fg guisp=#2e2e2e gui=NONE ctermfg=243 ctermbg=236 cterm=NONE
 hi MoreMsg guifg=#268bd2 guibg=NONE guisp=NONE gui=NONE ctermfg=32 ctermbg=NONE cterm=NONE
 hi SpellCap guifg=#e2e4e5 guibg=#a86f6f guisp=#a86f6f gui=NONE ctermfg=254 ctermbg=138 cterm=NONE
 hi VertSplit guifg=#b3b3b3 guibg=#828282 guisp=#828282 gui=NONE ctermfg=249 ctermbg=8 cterm=NONE
@@ -82,7 +82,7 @@ hi SpellLocal guifg=#e2e4e5 guibg=#a1a154 guisp=#a1a154 gui=NONE ctermfg=254 cte
 hi Error guifg=#70076c guibg=#bbbbc7 guisp=#bbbbc7 gui=bold ctermfg=53 ctermbg=251 cterm=bold
 hi PMenu guifg=#948b82 guibg=#24211d guisp=#24211d gui=NONE ctermfg=246 ctermbg=235 cterm=NONE
 hi SpecialKey guifg=#bfb6b0 guibg=#87705e guisp=#87705e gui=bold ctermfg=7 ctermbg=95 cterm=bold
-hi Constant guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
+hi Constant guifg=#967f57 guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
 hi DefinedName guifg=#e2e4e5 guibg=NONE guisp=NONE gui=NONE ctermfg=254 ctermbg=NONE cterm=NONE
 hi Tag guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
 hi String guifg=#367a61 guibg=NONE guisp=NONE gui=NONE ctermfg=66 ctermbg=NONE cterm=NONE
@@ -92,7 +92,7 @@ hi LocalVariable guifg=#e2e4e5 guibg=NONE guisp=NONE gui=NONE ctermfg=254 ctermb
 hi Repeat guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
 hi SpellBad guifg=#e2e4e5 guibg=#4c4c69 guisp=#4c4c69 gui=NONE ctermfg=254 ctermbg=60 cterm=NONE
 hi CTagsClass guifg=#e2e4e5 guibg=NONE guisp=NONE gui=NONE ctermfg=254 ctermbg=NONE cterm=NONE
-hi Directory guifg=#9e9e9e guibg=NONE guisp=NONE gui=NONE ctermfg=247 ctermbg=NONE cterm=NONE
+hi Directory guifg=#967f57 guibg=NONE guisp=NONE gui=NONE ctermfg=247 ctermbg=NONE cterm=NONE
 hi Structure guifg=#a6612d guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
 hi Macro guifg=#8f3f3f guibg=NONE guisp=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
 hi Underlined guifg=#6c71c4 guibg=NONE guisp=NONE gui=underline ctermfg=61 ctermbg=NONE cterm=underline

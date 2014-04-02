@@ -5,6 +5,7 @@ syntax on
 filetype plugin indent on
 
 let mapleader=','
+let g:session_autosave = 'no'
 
 set number
 set ruler
