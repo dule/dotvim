@@ -6,6 +6,7 @@ filetype plugin indent on
 
 let mapleader=','
 let g:session_autosave = 'no'
+let g:ConqueTerm_StartMessages = 0
 
 set number
 set ruler
@@ -65,6 +66,7 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
+noremap <F10> :call RunMochaOnFile()<CR>
 noremap <F4> :silent Ggrep <cword><CR> :copen<CR>
 nnoremap <F6> :buffers<CR>:buffer<Space>
 inoremap <silent> jj <Esc>
@@ -84,8 +86,12 @@ noremap <silent> <Leader>csw :set background=light<CR>
 noremap <silent> <Leader>csd :set background=dark<CR>
 noremap <silent> <Leader>nh :noh<CR>
 noremap <silent> <Leader>s :vsplit<CR>
-noremap <silent> <Leader>gv :Gitv
 noremap <silent> <Leader>v :so $MYVIMRC<CR>
+
+nmap <Leader>g :silent Ggrep -C2<space>
+
+inoremap <C-c> <ESC>
+nnoremap <C-c> :nohl<CR>
 
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
@@ -107,5 +113,8 @@ if has('gui_macvim')
     set macmeta
 endif
 
-command! -nargs=+ G :silent Ggrep "<args>"
+function RunMochaOnFile()
+  execute "ConqueTermSplit mocha" bufname('%')
+endfunction
+
 autocmd QuickFixCmdPost *grep* cwindow
