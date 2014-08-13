@@ -7,6 +7,7 @@ filetype plugin indent on
 let mapleader=','
 let g:session_autosave = 'no'
 let g:ConqueTerm_StartMessages = 0
+let g:ConqueTerm_InsertOnEnter = 0
 
 set number
 set ruler
@@ -68,6 +69,7 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 noremap <F10> :call RunMochaOnFile()<CR>
 noremap <F4> :silent Ggrep <cword><CR> :copen<CR>
+noremap <F5> :ConqueTermSplit grunt build-debug<CR>
 nnoremap <F6> :buffers<CR>:buffer<Space>
 inoremap <silent> jj <Esc>
 nnoremap <silent> ; :
