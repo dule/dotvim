@@ -12,7 +12,52 @@
 	url = https://github.com/digitaltoad/vim-jade.git
 [submodule "bundle-available/coffeescript"]
 	path = bundle-available/coffeescript
-	url = https://github.com/kchmck/vim-coffee-script.git
+	url = git@github.com:kchmck/vim-coffee-script.git
 [submodule "bundle-available/tabular"]
 	path = bundle-available/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "bundle-available/camel-case-motion"]
+	path = bundle-available/camel-case-motion
+	url = git@github.com:bkad/CamelCaseMotion.git
+[submodule "bundle-available/supertab"]
+	path = bundle-available/supertab
+	url = git@github.com:ervandew/supertab.git
+[submodule "bundle-available/syntastic"]
+	path = bundle-available/syntastic
+	url = git@github.com:scrooloose/syntastic.git
+[submodule "bundle-available/vim-colors-solarized"]
+	path = bundle-available/vim-colors-solarized
+	url = git@github.com:altercation/vim-colors-solarized.git
+[submodule "bundle-available/vim-fugitive"]
+	path = bundle-available/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule "bundle-available/vim-gitgutter"]
+	path = bundle-available/vim-gitgutter
+	url = git@github.com:airblade/vim-gitgutter.git
+[submodule "bundle-available/vim-misc"]
+	path = bundle-available/vim-misc
+	url = git@github.com:xolox/vim-misc.git
+[submodule "bundle-available/vim-nerdtree-tabs"]
+	path = bundle-available/vim-nerdtree-tabs
+	url = git@github.com:jistr/vim-nerdtree-tabs.git
+[submodule "bundle-available/vim-repeat"]
+	path = bundle-available/vim-repeat
+	url = git@github.com:tpope/vim-repeat.git
+[submodule "bundle-available/vim-sensible"]
+	path = bundle-available/vim-sensible
+	url = git@github.com:tpope/vim-sensible.git
+[submodule "bundle-available/vim-session"]
+	path = bundle-available/vim-session
+	url = git@github.com:xolox/vim-session.git
+[submodule "bundle-available/vim-stylus"]
+	path = bundle-available/vim-stylus
+	url = git@github.com:wavded/vim-stylus.git
+[submodule "bundle-available/vim-surround"]
+	path = bundle-available/vim-surround
+	url = git@github.com:tpope/vim-surround.git
+[submodule "bundle-available/vim-unimpaired"]
+	path = bundle-available/vim-unimpaired
+	url = git@github.com:tpope/vim-unimpaired.git
+[submodule "bundle-available/you-complete-me"]
+	path = bundle-available/you-complete-me
+	url = git@github.com:tpope/vim-unimpaired.git
