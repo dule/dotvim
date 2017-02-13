@@ -148,6 +148,7 @@ noremap <silent> <Leader>cc :CoffeeCompile<CR>
 noremap <silent> <Leader>nh :noh<CR>
 noremap <silent> <Leader>s :vsplit<CR>
 noremap <silent> <Leader>v :so $MYVIMRC<CR>
+noremap <silent> <Leader>cd :cd %:p:h<CR>
 
 noremap <silent> <Leader>j :%!python -m json.tool<CR>
 noremap <silent> <Leader>gk :!gitk %:p<CR>

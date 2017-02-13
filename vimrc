@@ -1,16 +1,41 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree'
-Plug 'digitaltoad/vim-jade'
-Plug 'wavded/vim-stylus'
-Plug 'bkad/CamelCaseMotion'
-Plug 'mhinz/vim-signify'
-Plug 'godlygeek/tabular'
-Plug 'vim-scripts/Conque-Shell'
-Plug 'kchmck/vim-coffee-script'
-Plug 'ervandew/supertab'
-Plug 'scrooloose/syntastic'
+set rtp+=/usr/local/opt/fzf
 
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+"Plug 'bkad/CamelCaseMotion'
+Plug 'bling/vim-airline'
+Plug 'chaoren/vim-wordmotion'
+Plug 'digitaltoad/vim-jade'
+Plug 'easymotion/vim-easymotion'
+Plug 'ervandew/supertab'
+Plug 'elzr/vim-json'
+Plug 'flazz/vim-colorschemes'
+Plug 'godlygeek/tabular'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'junegunn/fzf.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mhinz/vim-signify'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'terryma/vim-smooth-scroll'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-scripts/Conque-Shell'
+Plug 'wavded/vim-stylus'
+
+Plug 'valloric/youcompleteme', { 'do': './install.py' }
+
+call plug#end()
 
 syntax on
 filetype plugin indent on
@@ -28,11 +53,23 @@ let g:nerdtree_tabs_open_on_gui_startup=1
 let g:nerdtree_tabs_synchronous_focus=0
 let g:nerdtree_tabs_focus_on_files=1
 
-let g:syntastic_coffee_coffeelint_args="--csv --file ~/coffeelint.json"
+let g:gitgutter_eager=0
+let g:gitgutter_realtime=0
+
+let $FZF_DEFAULT_COMMAND='Ag --hidden 
+\--ignore-dir=.git 
+\--ignore-dir=node_modules 
+\--ignore-dir=dist 
+\--ignore-dir=build -g ""'
+
+"let g:syntastic_coffee_coffeelint_args="--csv --file ~/coffeelint.json"
 let g:syntastic_enable_signs=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠' 
 let g:syntastic_check_on_open=1
+
+let g:fzf_action = { 'enter': 'tab split' }
+let g:fzf_height = '25%'
 
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
@@ -71,10 +108,8 @@ set backupdir=~/.vim/backups
 set directory=~/.vim/tmp,/var/tmp,/tmp
 set undodir^=~/.vim/undo
 
-"colorscheme lunarized
-"set background=dark
-
-set rtp+=/usr/local/opt/fzf
+colorscheme hybrid
+set background=dark
 
 " Use ctrl-[hjkl] to select the active split
 nnoremap <silent> <C-k> :wincmd k<CR>
@@ -102,6 +137,8 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
+nnoremap <silent> <Tab> <C-w>w
+
 noremap <F10> :call RunMochaOnFile()<CR>
 noremap <F4> :silent Ggrep <cword><CR> :copen<CR>
 nnoremap <F6> :buffers<CR>:buffer<Space>
@@ -126,13 +163,14 @@ noremap <silent> <Leader>cc :CoffeeCompile<CR>
 noremap <silent> <Leader>nh :noh<CR>
 noremap <silent> <Leader>s :vsplit<CR>
 noremap <silent> <Leader>v :so $MYVIMRC<CR>
+noremap <silent> <Leader>cd :cd %:p:h<CR>
 
 noremap <silent> <Leader>j :%!python -m json.tool<CR>
 noremap <silent> <Leader>gk :!gitk %:p<CR>
 noremap <silent> <Leader>p :let @+=expand("%:p")<CR>
 
 nmap <Leader>g :silent Ggrep -C2<space>
-noremap <silent> <Leader>t :fzf<CR>
+noremap <silent> <Leader>t :FZF --reverse<CR>
 
 inoremap <C-c> <ESC>
 nnoremap <C-c> :nohl<CR>
@@ -145,12 +183,18 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Use the CamelCaseMotion plugin to use camel case word boundaries for w, b, e
 " movement
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-sunmap w
-sunmap b
-sunmap e
+"map <silent> w <Plug>CamelCaseMotion_w
+"map <silent> b <Plug>CamelCaseMotion_b
+"map <silent> e <Plug>CamelCaseMotion_e
+"sunmap w
+"sunmap b
+"sunmap e
+
+noremap <silent> <c-u> :call smooth_scroll#up(40, 20, 6)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(40, 20, 6)<CR>
+" smooth_scroll is broken in visual mode currently - unmap
+vnoremap <silent> <c-u> <c-u>
+vnoremap <silent> <c-d> <c-d>
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
