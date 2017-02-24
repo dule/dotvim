@@ -7,6 +7,7 @@ Plug 'altercation/vim-colors-solarized'
 "Plug 'bkad/CamelCaseMotion'
 Plug 'bling/vim-airline'
 Plug 'chaoren/vim-wordmotion'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'digitaltoad/vim-jade'
 Plug 'easymotion/vim-easymotion'
 Plug 'ervandew/supertab'
@@ -22,7 +23,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
-Plug 'scrooloose/nerdcommenter'
+"Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'tpope/vim-fugitive'
@@ -70,6 +71,9 @@ let g:syntastic_check_on_open=1
 
 let g:fzf_action = { 'enter': 'tab split' }
 let g:fzf_height = '25%'
+let g:fzf_launcher = "/usr/local/bin/fzf.applescript %s"
+
+"let g:ctrlp_custom_ignore = { 'dir': '/lib$' }
 
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
@@ -90,6 +94,7 @@ set autoindent
 set smartindent
 set colorcolumn=120
 set lines=999 columns=999
+set guifont=Menlo\ Regular:h14
 
 set switchbuf=usetab,newtab
 set wildignore=node_modules/**,dist/**,build/**,vendor/**,lib/**,*/tmp/*,*.so,*.swp,*.zip,*.orig
@@ -170,7 +175,7 @@ noremap <silent> <Leader>gk :!gitk %:p<CR>
 noremap <silent> <Leader>p :let @+=expand("%:p")<CR>
 
 nmap <Leader>g :silent Ggrep -C2<space>
-noremap <silent> <Leader>t :FZF --reverse<CR>
+noremap <silent> <Leader>t :CtrlPMixed<CR>
 
 inoremap <C-c> <ESC>
 nnoremap <C-c> :nohl<CR>
@@ -220,5 +225,16 @@ endif
 function RunMochaOnFile()
   execute "ConqueTermSplit mocha" bufname('%')
 endfunction
+
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
 
 "autocmd QuickFixCmdPost *grep* cwindow
