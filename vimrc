@@ -14,6 +14,7 @@ Plug 'ervandew/supertab'
 Plug 'elzr/vim-json'
 Plug 'flazz/vim-colorschemes'
 Plug 'godlygeek/tabular'
+Plug 'janko-m/vim-test'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf.vim'
 Plug 'kchmck/vim-coffee-script'
@@ -68,10 +69,14 @@ let g:syntastic_enable_signs=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠' 
 let g:syntastic_check_on_open=1
+let g:syntastic_javascript_checkers = ['eslint']
 
 let g:fzf_action = { 'enter': 'tab split' }
 let g:fzf_height = '25%'
 let g:fzf_launcher = "/usr/local/bin/fzf.applescript %s"
+
+let g:test#runner_commands = ['Mocha']
+let test#strategy = "iterm"
 
 "let g:ctrlp_custom_ignore = { 'dir': '/lib$' }
 
@@ -177,6 +182,8 @@ noremap <silent> <Leader>p :let @+=expand("%:p")<CR>
 nmap <Leader>g :silent Ggrep -C2<space>
 noremap <silent> <Leader>t :CtrlPMixed<CR>
 
+nmap <silent> <leader>m :Mocha %:p<CR>
+
 inoremap <C-c> <ESC>
 nnoremap <C-c> :nohl<CR>
 
@@ -235,6 +242,12 @@ if executable('ag')
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
+
+  let g:ctrlp_prompt_mappings = {
+        \ 'AcceptSelection("e")': ['<c-t>'],
+        \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+        \ }
+
 endif
 
 "autocmd QuickFixCmdPost *grep* cwindow
