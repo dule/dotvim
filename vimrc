@@ -19,6 +19,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mhinz/vim-signify'
+Plug 'mxw/vim-jsx'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'othree/html5.vim'
@@ -74,6 +75,8 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:fzf_action = { 'enter': 'tab split' }
 let g:fzf_height = '25%'
 let g:fzf_launcher = "/usr/local/bin/fzf.applescript %s"
+
+let g:jsx_ext_required = 0
 
 let g:test#runner_commands = ['Mocha']
 let test#strategy = "iterm"
