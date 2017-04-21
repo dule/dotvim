@@ -25,6 +25,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
+Plug 'romainl/vim-qf'
 "Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-smooth-scroll'
@@ -77,6 +78,8 @@ let g:fzf_height = '25%'
 let g:fzf_launcher = "/usr/local/bin/fzf.applescript %s"
 
 let g:jsx_ext_required = 0
+
+let g:qf_mapping_ack_style = 1
 
 let g:test#runner_commands = ['Mocha']
 let test#strategy = "iterm"
@@ -161,6 +164,8 @@ nnoremap <silent> ; :
 noremap <silent> <Leader>n :NERDTreeTabsToggle<CR>
 noremap <silent> <Leader>f :NERDTreeFind<Cr>:vertical resize 40<CR>
 
+nmap <Leader>cl <Plug>(qf_qf_toggle)
+
 " Remove trailing whitespace on save
 autocmd FileType c,cpp,java,php,javascript,coffee,pug,stylus autocmd BufWritePre <buffer> :%s/\s\+$//e
 
@@ -182,7 +187,7 @@ noremap <silent> <Leader>j :%!python -m json.tool<CR>
 noremap <silent> <Leader>gk :!gitk %:p<CR>
 noremap <silent> <Leader>p :let @+=expand("%:p")<CR>
 
-nmap <Leader>g :silent Ggrep -C2<space>
+nmap <Leader>g :silent Ggrep! -C2<space>
 noremap <silent> <Leader>t :CtrlPMixed<CR>
 
 nmap <silent> <leader>m :Mocha %:p<CR>
@@ -253,4 +258,5 @@ if executable('ag')
 
 endif
 
-"autocmd QuickFixCmdPost *grep* cwindow
+"Open quickfix window after any grep invocation
+autocmd QuickFixCmdPost *grep* cwindow
