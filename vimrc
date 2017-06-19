@@ -2,9 +2,11 @@ call plug#begin('~/.vim/plugged')
 
 set rtp+=/usr/local/opt/fzf
 
+"Plug 'bkad/CamelCaseMotion'
+"Plug 'scrooloose/nerdcommenter'
+
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
-"Plug 'bkad/CamelCaseMotion'
 Plug 'bling/vim-airline'
 Plug 'chaoren/vim-wordmotion'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -20,14 +22,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mhinz/vim-signify'
 Plug 'mxw/vim-jsx'
-Plug 'scrooloose/syntastic'
-Plug 'scrooloose/nerdtree'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'romainl/vim-qf'
-"Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -37,6 +37,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/Conque-Shell'
 Plug 'wavded/vim-stylus'
 
+Plug 'ryanoasis/vim-devicons' "Need to load after airline & nerdtree
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'valloric/youcompleteme', { 'do': './install.py' }
 
 call plug#end()
@@ -50,9 +52,8 @@ let g:session_autosave='no'
 let g:ConqueTerm_StartMessages=0
 let g:ConqueTerm_InsertOnEnter=0
 
-let NERDTreeShowHidden=1
-let NERDTreeWinSize=35
-let g:NERDChristmasTree=1
+let g:airline_powerline_fonts=1
+
 let g:nerdtree_tabs_open_on_gui_startup=1
 let g:nerdtree_tabs_synchronous_focus=0
 let g:nerdtree_tabs_focus_on_files=1
@@ -105,7 +106,8 @@ set autoindent
 set smartindent
 set colorcolumn=120
 set lines=999 columns=999
-set guifont=Menlo\ Regular:h14
+set encoding=utf-8
+set guifont=PragmataPro\ Regular:h14
 
 set switchbuf=usetab,newtab
 set wildignore=node_modules/**,dist/**,build/**,vendor/**,lib/**,*/tmp/*,*.so,*.swp,*.zip,*.orig
@@ -128,10 +130,10 @@ colorscheme hybrid
 set background=dark
 
 " Use ctrl-[hjkl] to select the active split
-nnoremap <silent> <C-k> :wincmd k<CR>
-nnoremap <silent> <C-j> :wincmd j<CR>
-nnoremap <silent> <C-h> :wincmd h<CR>
-nnoremap <silent> <C-l> :wincmd l<CR>
+" nnoremap <silent> <C-k> :wincmd k<CR>
+" nnoremap <silent> <C-j> :wincmd j<CR>
+" nnoremap <silent> <C-h> :wincmd h<CR>
+" nnoremap <silent> <C-l> :wincmd l<CR>
 
 nnoremap <silent> <Leader>k :wincmd k<CR>
 nnoremap <silent> <Leader>j :wincmd j<CR>
@@ -160,9 +162,6 @@ noremap <F4> :silent Ggrep <cword><CR> :copen<CR>
 nnoremap <F6> :buffers<CR>:buffer<Space>
 inoremap <silent> jj <Esc>
 nnoremap <silent> ; :
-
-noremap <silent> <Leader>n :NERDTreeTabsToggle<CR>
-noremap <silent> <Leader>f :NERDTreeFind<Cr>:vertical resize 40<CR>
 
 nmap <Leader>cl <Plug>(qf_qf_toggle)
 
@@ -195,6 +194,9 @@ nmap <silent> <leader>m :Mocha %:p<CR>
 inoremap <C-c> <ESC>
 nnoremap <C-c> :nohl<CR>
 
+"Replace without copying into buffer
+vmap r "_dP
+
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
@@ -215,6 +217,40 @@ noremap <silent> <c-d> :call smooth_scroll#down(40, 20, 6)<CR>
 " smooth_scroll is broken in visual mode currently - unmap
 vnoremap <silent> <c-u> <c-u>
 vnoremap <silent> <c-d> <c-d>
+
+
+"{{{ NERDTree
+let NERDTreeShowHidden=1
+let NERDTreeWinSize=40
+let g:NERDChristmasTree=1
+let g:DevIconsEnableFoldersOpenClose = 1
+"let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+let g:NERDTreeMinimalUI = 1
+"let g:NERDTreeDirArrowExpandable = " "
+"let g:NERDTreeDirArrowCollapsible = " "
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+let g:webdevicons_conceal_nerdtree_brackets = 1
+"let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
+"let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+" Toggle with Ctrl+n
+"map <C-n> :NERDTreeToggle<CR>
+noremap <silent> <Leader>n :NERDTreeTabsToggle<CR>
+noremap <silent> <Leader>f :NERDTreeFind<Cr>:vertical resize 40<CR>
+" Open a NERDTree automatically when...
+autocmd StdinReadPre * let s:std_in=1
+" `- vim starts up if no files were specified:
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" `- vim starts up on opening a directory:
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd FileType nerdtree setlocal nolist
+if exists('g:loaded_webdevicons')
+    call webdevicons#refresh()
+endif
+"}}} NERDTree
+
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
