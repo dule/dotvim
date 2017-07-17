@@ -7,7 +7,7 @@ set rtp+=/usr/local/opt/fzf
 
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
-Plug 'bling/vim-airline'
+"Plug 'bling/vim-airline'
 Plug 'chaoren/vim-wordmotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'digitaltoad/vim-jade'
@@ -16,6 +16,7 @@ Plug 'ervandew/supertab'
 Plug 'elzr/vim-json'
 Plug 'flazz/vim-colorschemes'
 Plug 'godlygeek/tabular'
+Plug 'jamshedvesuna/vim-markdown-preview'
 Plug 'janko-m/vim-test'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf.vim'
@@ -31,6 +32,7 @@ Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -81,6 +83,8 @@ let g:fzf_launcher = "/usr/local/bin/fzf.applescript %s"
 let g:jsx_ext_required = 0
 
 let g:qf_mapping_ack_style = 1
+
+let vim_markdown_preview_github=1
 
 let g:test#runner_commands = ['Mocha']
 let test#strategy = "iterm"
